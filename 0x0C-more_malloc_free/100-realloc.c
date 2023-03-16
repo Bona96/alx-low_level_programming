@@ -1,5 +1,3 @@
- 747 Bytes
-
 #include <stdlib.h>
 
 /**
