@@ -1,24 +1,20 @@
 #include "main.h"
 /**
-  *binary_to_uint - change a binary to decimal number
-  *@b: the binary to change
-  *Return: the decimal number
-  */
+ * binary_to_uint - convert binary string to an int
+ * @b: string containing the binary
+ * Return: converted number or 0
+ */
 unsigned int binary_to_uint(const char *b)
 {
-  unsigned int number = 0;
-  unsigned int i = 0;
-  if (!b)
-    return (0);
-  for (; b[i] != '\0'; i++)
-  {
-    if (b[i] != '0' && b[i] != '1')
-      return (0);
-    if (b[i] == '1')
-      number = (number << 1) | 1;
-    else if (b[i] == '0')
-      number <<= 1;
-  }
+	unsigned int dec = 0;
 
-  return (number);
+	for (; b && *b; b++)
+	{
+		dec *= 2;
+		if (*b == '1' || *b == '0')
+			dec += *b - '0';
+		else
+			return (0);
+	}
+	return (dec);
 }
